@@ -1,0 +1,165 @@
+/*
+  Names: Tamaki Arai (tamaki15), Hank O’Brien(hanko2@uw.edu)
+  Date: December 10th 2024
+  Sections:
+  Tamaki: CSE 154 AB; TAs: Elias Belzberg, Peter Oh
+  Hank:   CSE 154 AD; TAs: Ella Joy Crowder, Alison Ho
+
+  The css file that styles "login-page.html". It has about 150 lines of properties.
+  It deals with flex views, fonts, borders, frames, etc. Some selectors are used to change views
+  in "login-page.js" Comments are added to difficult properties.
+ */
+
+body {
+  margin: 0px;
+}
+
+main {
+  min-height: 520px;
+}
+
+#message-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 100px;
+}
+
+.error-messages {
+  color: red;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 50px;
+  text-align: center;
+}
+
+#company-logo {
+  height: 150px;
+  width: 150px;
+}
+
+#back-to-main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+#login-section-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#login-section-flex h2, #signup-section-flex h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+#login-form, #signup-form, #signup-private-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+#login-form > label, #signup-private-info > label {
+  width: 260px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+#signup-section-flex {
+  height: 500px;
+}
+
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signup-user-icon-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-icon-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+.user-icons {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+
+.user-icons:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+.selected {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.635);
+}
+
+footer {
+  background-color: rgb(213, 213, 213);
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+footer p {
+  margin: 0px;
+}
+
+footer li {
+  text-align: left;
+}
+
+#credits {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#social > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#social span {
+  display: flex;
+  height: 15px;
+  gap: 5px;
+  align-items: center;
+}
+
+#social img {
+  height: 15px;
+  width: 15px;
+}

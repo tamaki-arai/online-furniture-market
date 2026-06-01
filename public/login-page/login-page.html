@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+  Names: Tamaki Arai (tamaki15), Hank O’Brien(hanko2@uw.edu)
+  Date: December 10th 2024
+  Sections:
+  Tamaki: CSE 154 AB; TAs: Elias Belzberg, Peter
+  Hank:   CSE 154 AD; TAs: Ella Joy Crowder, Alison Ho
+
+  The login/signup page of the website, "Online Furniture Market". This website allows a user to
+  create a new account with a user icon and to log in to the website.
+  User icon images are in the directory "/public/img/".
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>User Login</title>
+    <link rel="stylesheet" href="login-page-styles.css">
+    <script src="login-page.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Online Furniture Market</h1>
+      <img id="company-logo" src="../img/default/logo.png" alt="Company Logo">
+    </header>
+    <main>
+      <section id="login-section">
+        <section id="login-section-flex">
+          <h2>User Log In</h2>
+          <form id="login-form">
+            <label>Username
+              <input id="login-username" name="user" type="text" required>
+            </label>
+            <label>Password
+              <input id="login-password" name="password" type="password" required>
+            </label>
+            <button id='login-btn'>Log In</button>
+          </form>
+          <p>New user? Click here! <a id="go-to-signup" href="#">Sign In</a></p>
+        </section>
+      </section>
+      <section id="signup-section" class="hidden">
+        <section id="signup-section-flex">
+          <h2>New User Sign In</h2>
+          <form id="signup-form">
+            <div id="signup-private-info">
+              <h3>Enter all the fields</h3>
+              <label>Email
+                <input id="signup-email" type="text" placeholder="...@example.com" required>
+              </label>
+              <label>Name <input id="signup-name" type="text" required></label>
+              <label>Username <input id="signup-username" type="text" required></label>
+              <label>Password <input id="signup-password" type="password" required></label>
+            </div>
+            <div id="signup-user-icon-info">
+              <h3>Select user icon</h3>
+              <div id="user-icon-container">
+                <img class="user-icons selected" src="../img/user-icons/user-icon-1.png" alt="User Icon 1">
+                <img class="user-icons" src="../img/user-icons/user-icon-2.png" alt="User Icon 2">
+                <img class="user-icons" src="../img/user-icons/user-icon-3.png" alt="User Icon 3">
+                <img class="user-icons" src="../img/user-icons/user-icon-4.png" alt="User Icon 4">
+                <img class="user-icons" src="../img/user-icons/user-icon-5.png" alt="User Icon 5">
+                <img class="user-icons" src="../img/user-icons/user-icon-6.png" alt="User Icon 6">
+              </div>
+            </div>
+            <button id='signup-btn'>Sign In</button>
+          </form>
+        </section>
+      </section>
+      <section id="message-section">
+        <p id="login-success-msg" class="hidden">Log in successful. Welcome to our page!</p>
+        <p id="signup-success-msg" class="hidden">You've created a new account. Let's log in!y</p>
+        <p id="code-500" class="error-messages hidden">
+          An unexpected error occurred on the server.
+        </p>
+      </section>
+      <section id="back-to-main-page">
+        <p id="go-to-login-session" class="hidden">Actually you have an account? Click here! <a id="go-to-login" href="#">Log In</a></p>
+        <a id="back-to-main-page-anchor" href="../index.html">Back to Main Page</a>
+      </section>
+    </main>
+    <footer id="footer">
+      <section id="credits">
+        <section>
+          <h4>Contacts</h4>
+          <ul>
+            <li>Tamaki: <a href="mailto:tamaki15@uw.edu">tamaki15@uw.edu</a></li>
+            <li>Hank: <a href="mailto:hanko2@uw.edu">hanko2@uw.edu</a></li>
+          </ul>
+        </section>
+        <section>
+          <h4>Feedback</h4>
+          <p>Post on Ed!!</p>
+          <a href="https://edstem.org/us/courses/67446/discussion">CSE 154 - 24au Ed Discussion</a>
+        </section>
+        <section>
+          <h4>Our About Pages</h4>
+          <ul>
+            <li>
+              <a href="https://courses.cs.washington.edu/courses/cse154/24au/index.html">CSE 154: Web Programming</a>
+            </li>
+            <li>
+              <a href="https://www.cs.washington.edu/">Paul G. Allen School of Computer Science</a>
+            </li>
+          </ul>
+        </section>
+        <section id="social">
+          <h4>Social</h4>
+          <div>
+            <span>
+              <img src="../img/default/x-icon.png" alt="X icon">
+              <a href="https://x.com/uwcse?s=11&t=bbZMxh5rdDKQRf1BQkmZrA">@uwcse</a>
+            </span>
+            <span>
+              <img src="../img/default/instagram-icon.png" alt="Instagram icon">
+              <a href="https://www.instagram.com/uwcse.outreach?igsh=MXAzNXNhdDQzdDBsaQ%3D%3D">@uwcse.outreach</a>
+            </span>
+          </div>
+        </section>
+      </section>
+      <p>Fonts are imported using Google's Google Font</p>
+      <p>Images are generated using Microsoft's Microsoft Designer, DeepAI's AI Image Generator</p>
+      <p>© 2024, Tamaki Arai, Hank O'rien, CSE154 Web Programming. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
