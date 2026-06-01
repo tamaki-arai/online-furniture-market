@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<!--
+  Names: Tamaki Arai (tamaki15), Hank O’Brien(hanko2@uw.edu)
+  Date: December 10th 2024
+  Sections:
+  Tamaki: CSE 154 AB; TAs: Elias Belzberg, Peter
+  Hank:   CSE 154 AD; TAs: Ella Joy Crowder, Alison Ho
+
+  The main page of the website, "Online Furniture Market". This website has not only basic
+  features such as searching behaviors, filters, product details, and purchasing products, but also
+  featured picks and the ranking of the best selling products. Connected to "login-page.html" you
+  can sign in and log in.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Final Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <img id="website-logo" src="img/default/logo.png" alt="logo">
+      <section id="header-titles">
+        <h1>Online Furniture Market</h1>
+        <h2>Fulfilling Your Needs, Always at Your Service</h2>
+      </section>
+    </header>
+    <main>
+      <section id="page-top">
+        <div id="page-top-left">
+          <a id="back-to-main-page-anchor" href="#header">Main Page</a>
+          <h4>Contents</h4>
+          <ul id="main-page-index">
+            <li><a href="#header">Page Top</a></li>
+            <li><a href="#featured-picks-section">Featured Picks</a></li>
+            <li><a href="#best-selling-products-section">Best-Selling Products</a></li>
+            <li><a href="#all-items-section">All Items</a></li>
+            <li><a href="#footer">Page Bottom</a></li>
+          </ul>
+          <ul id="search-results-page-index" class="hidden">
+            <li><a href="#header">Page Top</a></li>
+            <li><a href="#search-results-page">Search Results</a></li>
+            <li><a href="#footer">Page Bottom</a></li>
+          </ul>
+          <ul id="product-details-page-index" class="hidden">
+            <li><a href="#header">Page Top</a></li>
+            <li><a href="#product-details-page">Product Details</a></li>
+            <li><a href="#add-to-cart-btn">Add to Cart</a></li>
+            <li><a href="#footer">Page Bottom</a></li>
+          </ul>
+          <ul id="cart-page-index" class="hidden">
+            <li><a href="#header">Page Top</a></li>
+            <li><a href="#cart-page">Items in Cart</a></li>
+            <li><a href="#cart-purchase-section">Purchase Items</a></li>
+            <li><a href="#footer">Page Bottom</a></li>
+          </ul>
+          <ul id="user-page-index" class="hidden">
+            <li><a href="#header">Page Top</a></li>
+            <li><a href="#user-page">My Page</a></li>
+            <li><a href="#user-information-section">User Information</a></li>
+            <li><a href="#transaction-history-section">Transaction History</a></li>
+            <li><a href="#footer">Page Bottom</a></li>
+          </ul>
+        </div>
+        <div id="page-top-middle">
+          <form id="search-bar">
+            <input id="search-bar-input" type="text" name="search-bar"
+            placeholder="Search Products">
+            <button id="search-btn">
+              <img src="img/default/search-icon.png" alt="magnifying glass icon">
+            </button>
+          </form>
+          <form id="search-filters">
+            <fieldset id="dropdown-filters">
+              <div id="dropdown-title">
+                <div>Filters</div>
+                <img class="dropdown-icons" src="img/default/dropdown-icon-1.png" alt="a dropdown icon 1">
+              </div>
+              <div id="dropdown">
+                <fieldset class="dropdowns">
+                  <div class="secondary-dropdowns">
+                    <span class="dropdown-titles">Categories</span>
+                    <span class="dropdown-icons">▶</span>
+                  </div>
+                  <div id="category-options" class="options">
+                    <label><input type="checkbox" name="chair"> Chair</label>
+                    <label><input type="checkbox" name="bean-bag"> Bean Bag</label>
+                    <label><input type="checkbox" name="table"> Table</label>
+                    <label><input type="checkbox" name="sofa"> Sofa</label>
+                    <label><input type="checkbox" name="bed"> Bed</label>
+                    <label><input type="checkbox" name="desk"> Desk</label>
+                    <label><input type="checkbox" name="nightstand"> Nightstand</label>
+                    <label><input type="checkbox" name="items-others"> Others</label>
+                  </div>
+                </fieldset>
+                <fieldset class="dropdowns">
+                  <div class="secondary-dropdowns">
+                    <span class="dropdown-titles">Colors</span>
+                    <span class="dropdown-icons">▶</span>
+                  </div>
+                  <div id="color-options" class="options">
+                    <label><input type="checkbox" name="brown"> Brown</label>
+                    <label><input type="checkbox" name="green"> Green</label>
+                    <label><input type="checkbox" name="beige"> Beige</label>
+                    <label><input type="checkbox" name="black"> Black</label>
+                    <label><input type="checkbox" name="blue"> Blue</label>
+                    <label><input type="checkbox" name="gray"> Gray</label>
+                    <label><input type="checkbox" name="clear"> Clear</label>
+                    <label><input type="checkbox" name="shiny"> Shiny</label>
+                    <label><input type="checkbox" name="white"> White</label>
+                    <label><input type="checkbox" name="red"> Red</label>
+                    <label><input type="checkbox" name="colors-others"> Others</label>
+                  </div>
+                </fieldset>
+                <fieldset class="dropdowns">
+                  <div class="secondary-dropdowns">
+                    <span class="dropdown-titles">Materials</span>
+                    <span class="dropdown-icons">▶</span>
+                  </div>
+                  <div class="options">
+                    <fieldset class="sub-dropdowns">
+                      <div class="subdropdown-labels">
+                        <input type="checkbox" name="plastic">
+                        <div class="tertiary-dropdowns">
+                          <span class="dropdown-titles">Plastic</span>
+                          <span class="dropdown-icons">▷</span>
+                        </div>
+                      </div>
+                      <div class="options">
+                        <label><input type="checkbox" name="polyethylene"> Polyethylene</label>
+                        <label><input type="checkbox" name="polypropylene"> Polypropylene</label>
+                        <label><input type="checkbox" name="plastic-others"> Others</label>
+                      </div>
+                    </fieldset>
+                    <fieldset class="sub-dropdowns">
+                      <div class="subdropdown-labels">
+                        <input type="checkbox" name="wood">
+                        <div class="tertiary-dropdowns">
+                          <span class="dropdown-titles">Wood</span>
+                          <span class="dropdown-icons">▷</span>
+                        </div>
+                      </div>
+                      <div class="options">
+                        <label><input type="checkbox" name="oak"> Oak</label>
+                        <label><input type="checkbox" name="birch"> Birch</label>
+                        <label><input type="checkbox" name="spruce"> Spruce</label>
+                        <label><input type="checkbox" name="acacia"> Acacia</label>
+                        <label><input type="checkbox" name="mahogany"> Mahogany</label>
+                        <label><input type="checkbox" name="wood-others"> Others</label>
+                      </div>
+                    </fieldset>
+                    <fieldset class="sub-dropdowns">
+                      <div class="subdropdown-labels">
+                        <input type="checkbox" name="stone">
+                        <div class="tertiary-dropdowns">
+                          <span class="dropdown-titles">Stone</span>
+                          <span class="dropdown-icons">▷</span>
+                        </div>
+                      </div>
+                      <div class="options">
+                        <label><input type="checkbox" name="concrete"> Concrete</label>
+                        <label><input type="checkbox" name="granite"> Granite</label>
+                        <label><input type="checkbox" name="limestone"> Limestone</label>
+                        <label><input type="checkbox" name="marble"> Marble</label>
+                        <label><input type="checkbox" name="quartz"> Quartz</label>
+                        <label><input type="checkbox" name="stone-others"> Others</label>
+                      </div>
+                    </fieldset>
+                    <fieldset class="sub-dropdowns">
+                      <div class="subdropdown-labels">
+                        <input type="checkbox" name="metal">
+                        <div class="tertiary-dropdowns">
+                          <span class="dropdown-titles">Metal</span>
+                          <span class="dropdown-icons">▷</span>
+                        </div>
+                      </div>
+                      <div class="options">
+                        <label><input type="checkbox" name="aluminum"> Aluminum</label>
+                        <label><input type="checkbox" name="steel"> Steel</label>
+                        <label><input type="checkbox" name="wood-others"> Others</label>
+                      </div>
+                    </fieldset>
+                    <fieldset class="sub-dropdowns">
+                      <div class="subdropdown-labels">
+                        <input type="checkbox" name="fabric">
+                        <div class="tertiary-dropdowns">
+                          <span class="dropdown-titles">Fabric</span>
+                          <span class="dropdown-icons">▷</span>
+                        </div>
+                      </div>
+                      <div class="options">
+                        <label><input type="checkbox" name="leather"> Leather</label>
+                        <label><input type="checkbox" name="velvet"> Velvet</label>
+                        <label><input type="checkbox" name="cloth"> Cloth</label>
+                        <label><input type="checkbox" name="fabric-others"> Others</label>
+                      </div>
+                    </fieldset>
+                    <label class="subdropdown-others">
+                      <input type="checkbox" name="materials-others">
+                      <span> Others</span>
+                    </label>
+                  </div>
+                </fieldset>
+                <fieldset class="dropdowns">
+                  <div class="secondary-dropdowns">
+                    <span class="dropdown-titles">Brands</span>
+                    <span class="dropdown-icons">▶</span>
+                  </div>
+                  <div id="brand-options" class="options">
+                    <label><input type="checkbox" name="acme-furniture"> ACME Furniture</label>
+                    <label><input type="checkbox" name="office-pal"> Office Pal</label>
+                    <label><input type="checkbox" name="homeware-inc"> Homeware Inc.</label>
+                    <label><input type="checkbox" name="brands-others"> Others</label>
+                  </div>
+                </fieldset>
+                <fieldset class="dropdowns">
+                  <div class="secondary-dropdowns">
+                    <span class="dropdown-titles">Sizes</span>
+                    <span class="dropdown-icons">▶</span>
+                  </div>
+                  <div class="options">
+                    <fieldset class="sub-dropdowns">
+                      <div class="subdropdown-labels">
+                        <span class="no-checkboxes"></span>
+                        <div class="tertiary-dropdowns">
+                          <span class="dropdown-titles">Height</span>
+                          <span class="dropdown-icons">▷</span>
+                        </div>
+                      </div>
+                      <div class="options">
+                        <label><input type="checkbox" name="0-1ft"> 0-1 ft</label>
+                        <label><input type="checkbox" name="1-3ft"> 1-3 ft</label>
+                        <label><input type="checkbox" name="3-5ft"> 3-5 ft</label>
+                        <label><input type="checkbox" name="5-7ft"> 5-7 ft</label>
+                        <label><input type="checkbox" name="7-9f"> 7-9 ft</label>
+                        <label><input type="checkbox" name="9-ft"> 9+ ft</label>
+                      </div>
+                    </fieldset>
+                    <fieldset class="sub-dropdowns">
+                      <div class="subdropdown-labels">
+                        <span class="no-checkboxes"></span>
+                        <div class="tertiary-dropdowns">
+                          <span class="dropdown-titles">Width</span>
+                          <span class="dropdown-icons">▷</span>
+                        </div>
+                      </div>
+                      <div class="options">
+                        <label><input type="checkbox" name="0-1ft"> 0-1 ft</label>
+                        <label><input type="checkbox" name="1-3ft"> 1-3 ft</label>
+                        <label><input type="checkbox" name="3-5ft"> 3-5 ft</label>
+                        <label><input type="checkbox" name="5-7ft"> 5-7 ft</label>
+                        <label><input type="checkbox" name="7-9f"> 7-9 ft</label>
+                        <label><input type="checkbox" name="9-ft"> 9+ ft</label>
+                      </div>
+                    </fieldset>
+                    <fieldset class="sub-dropdowns">
+                      <div class="subdropdown-labels">
+                        <span class="no-checkboxes"></span>
+                        <div class="tertiary-dropdowns">
+                          <span class="dropdown-titles">Length</span>
+                          <span class="dropdown-icons">▷</span>
+                        </div>
+                      </div>
+                      <div class="options">
+                        <label><input type="checkbox" name="0-1ft"> 0-1 ft</label>
+                        <label><input type="checkbox" name="1-3ft"> 1-3 ft</label>
+                        <label><input type="checkbox" name="3-5ft"> 3-5 ft</label>
+                        <label><input type="checkbox" name="5-7ft"> 5-7 ft</label>
+                        <label><input type="checkbox" name="7-9f"> 7-9 ft</label>
+                        <label><input type="checkbox" name="9-ft"> 9+ ft</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </fieldset>
+                <fieldset class="dropdowns">
+                  <div class="secondary-dropdowns">
+                    <span class="dropdown-titles">Stars</span>
+                    <span class="dropdown-icons">▶</span>
+                  </div>
+                  <div id="rating-options" class="options">
+                    <label><input type="checkbox" name="1-stars"> 1+</label>
+                    <label><input type="checkbox" name="2-stars"> 2+</label>
+                    <label><input type="checkbox" name="3-stars"> 3+</label>
+                    <label><input type="checkbox" name="4-stars"> 4+</label>
+                    <label><input type="checkbox" name="5-stars"> 5</label>
+                  </div>
+                </fieldset>
+                <fieldset class="dropdowns">
+                  <div class="secondary-dropdowns">
+                    <span class="dropdown-titles">Reviews</span>
+                    <span class="dropdown-icons">▶</span>
+                  </div>
+                  <div class="options">
+                    <label><input type="checkbox" name="0-reviews"> 0-</label>
+                    <label><input type="checkbox" name="5-reviews"> 5-</label>
+                    <label><input type="checkbox" name="10-reviews"> 10-</label>
+                    <label><input type="checkbox" name="15-reviews"> 15-</label>
+                    <label><input type="checkbox" name="30-reviews"> 30-</label>
+                    <label><input type="checkbox" name="50-reviews"> 50-</label>
+                    <label><input type="checkbox" name="100-reviews"> 100-</label>
+                  </div>
+                </fieldset>
+              </div>
+            </fieldset>
+            <fieldset id="button-filters">
+              <button id="apply-search-filters">Apply Filters</button>
+              <button id="clear-search-filters">Clear Filters</button>
+              <div>
+                <label><input type="radio" name="and-or">AND</label>
+                <label><input type="radio" name="and-or" checked>OR</label>
+              </div>
+              <label>
+                <input type="checkbox" name="in-stock-only">Display items in stock only
+              </label>
+              <label>
+                <input type="checkbox" name="exclude-upcoming-items"> Exclude upcoming items
+              </label>
+              <p id="filters-applied" class="hidden"><strong>Filters Applied!</strong></p>
+            </fieldset>
+          </form>
+        </div>
+        <div id="page-top-right">
+          <div id="login" class="activities">
+            <img class="icons" src="img/user-icons/unknown-user-icon.png" alt="unknown user icon">
+            <span id="new-user"><strong>Log In</strong></span>
+            <span id="you-are-online" class="hidden"><strong>You are online!</strong></span>
+          </div>
+          <div id="cart" class="activities">
+            <img class="icons" src="img/default/cart-icon.png" alt="cart icon">
+            <span><strong>Cart</strong></span>
+          </div>
+          <div id="points" class="activities">
+            <img class="icons" src="img/default/points-icon.png" alt="points icon">
+            <span><strong>Points</strong></span>
+          </div>
+          <div id="history" class="activities">
+            <img class="icons" src="img/default/history-icon.jpg" alt="history icon">
+            <span><strong>History</strong></span>
+          </div>
+          <div id="logout">
+            <a href="#">Log out</a>
+          </div>
+          <div id="message-div">
+            <div id="login-message" class="hidden">
+              <p>
+                <span>Welcome back</span>
+                <span id="username"></span>
+              </p>
+            </div>
+            <div id="code-500" class="hidden">
+              <p class="error-messages">An unexpected error occurred on the server.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="main-page">
+        <section id="featured-picks-section">
+          <h3>Featured Picks</h3>
+          <section id="christmas-featured">
+            <h4>Christmas Featured</h4>
+            <article class="featured-picks">
+
+
+              <!-- Populate here -->
+              <article class="featured-items-frames hidden">
+                <article class="featured-items">
+                  <div class="featured-item-names">
+                    <span>Simple Plastic Red Chair</span>
+                  </div>
+                  <div class="featured-item-info">
+                    <div class="featured-item-info-left">
+                      <div class="featured-stars">
+                        <p>☆<span>2.67</span></p>
+                        <p>(<span>27</span> Reviews)</p>
+                      </div>
+                      <img class="featured-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                    </div>
+                    <div class="featured-item-info-right">
+                      <p><strong>・Price:</strong> $<span>35</span></p>
+                      <p><strong>・Stocks:</strong> <span>11</span></p>
+                      <p><strong>・Category:</strong> <span>chair</span></p>
+                      <p><strong>・Color:</strong> <span>red</span></p>
+                      <p><strong>・Material:</strong> <span>Polypropylene, Polyethylene</span></p>
+                      <p><strong>・Size:</strong> <span>2.6</span></p>
+                      <p><strong>・Brand:</strong> <span>Company</span></p>
+                    </div>
+                  </div>
+                  <div class="featured-item-descriptions">
+                    <p><strong>Description:</strong></p>
+                    <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...
+                    </span>
+                  </div>
+                </article>
+              </article>
+
+
+            </article>
+          </section>
+        </section>
+        <section id="best-selling-products-section">
+          <h3>Best-Selling Products</h3>
+          <section id="best-selling-products-ranking">
+            <article class="best-selling-products hidden">
+              <div class="best-selling-products-titles">
+                <h4>#1</h4>
+                <span>Product Name</span>
+                <p>☆<span class="stars">4.6</span></p>
+                <p>(<span>27</span> Reviews)</p>
+              </div>
+              <div class="best-selling-products-overviews">
+                <div class="best-selling-products-left">
+                  <img class="best-selling-products-images" src="img/default/image-sample.png" alt="sample image">
+                </div>
+                <div class="best-selling-products-right">
+                  <div class="best-selling-products-properties">
+                    <p><strong>・Price:</strong> $<span>35</span></p>
+                    <p><strong>・Stocks:</strong> <span>11</span></p>
+                    <p><strong>・Category:</strong> <span>chair</span></p>
+                    <p><strong>・Color:</strong> <span>red</span></p>
+                    <p><strong>・Material:</strong> <span>Polypropylene, Polyethylene</span></p>
+                    <p><strong>・Size:</strong> <span>2.6</span></p>
+                    <p><strong>・Brand:</strong> <span>Company</span></p>
+                    <p><strong>・Description:</strong></p>
+                  </div>
+                  <span class="best-selling-products-descriptions">MMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                </div>
+              </div>
+              <div class="best-selling-products-reviews">
+                <h5>Reviews</h5>
+                <div>
+                  <div class="best-selling-products-reviews-contents">
+                    <div class="best-selling-products-reviews-titles">
+                      <span>I like it and it's supreme!</span>
+                      <p>☆<span>4.67</span></p>
+                    </div>
+                    <div class="best-selling-products-reviews-users">
+                      <img class="icons" src="img/user-icons/unknown-user-icon.png" alt="unknown user icon">
+                      <span>Mr.Feast</span>
+                    </div>
+                    <span class="best-selling-products-reviews-descriptions">".best-selling-products-reviews-descriptions" is the only class where you can write however many words. aaaaaaaaljkkjaskfjawo;ifje;awoikfjas;lpkfjaw;efjiaw:opfjf;askifjao;fjiawo;dfjijijawo;iejsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span>
+                  </div>
+                  <div class="best-selling-products-reviews-contents">
+                    <div class="best-selling-products-reviews-titles">
+                      <span>I like it and it's supreme!</span>
+                      <p>☆<span>4.67</span></p>
+                    </div>
+                    <div class="best-selling-products-reviews-users">
+                      <img class="icons" src="img/user-icons/unknown-user-icon.png" alt="unknown user icon">
+                      <span>Mr.Feast</span>
+                    </div>
+                    <span class="best-selling-products-reviews-descriptions">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+        </section>
+        <section id="all-items-section">
+          <h3>All Items</h3>
+          <section id="layout-toggling-section">
+            <section id="list-grid-toggle-switch">
+              <span>List</span>
+              <div id="all-items-switch">
+                <div id="all-items-switch-circle-container">
+                  <div id="all-items-switch-circle"></div>
+                </div>
+              </div>
+              <span>Grid</span>
+            </section>
+          </section>
+          <section id="all-items-container">
+            <section id="list-view">
+              <section id="list-all-container">
+
+                <!-- Populate here -->
+                <article class="list-all-contents hidden">
+                  <div class="list-all-contents-names">
+                    <span>Simple Plastic Red Chair</span>
+                  </div>
+                  <div class="list-all-contents-info">
+                    <div class="list-all-contents-info-left">
+                      <div class="list-all-contents-stars">
+                        <p>☆<span>2.67</span></p>
+                        <p>(<span>27</span> Reviews)</p>
+                      </div>
+                      <img class="list-all-contents-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                    </div>
+                    <div class="list-all-contents-info-right">
+                      <ul>
+                        <li><strong>Price:</strong> $<span>35</span></li>
+                        <li><strong>Stocks:</strong> <span>11</span></li>
+                        <li><strong>Category:</strong> <span>chair</span></li>
+                        <li><strong>Color:</strong> <span>red</span></li>
+                        <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                        <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        <li><strong>Brand:</strong> <span>Company</span></p>
+                      </ul>
+                    </div>
+                    <div class="list-all-contents-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                  </div>
+                </article>
+
+              </section>
+            </section>
+            <section id="grid-view" class="hidden">
+              <section id="grid-all-container">
+
+                <!-- Populate here -->
+                <article class="grid-all-contents hidden">
+                  <div class="results-contents-names">
+                    <span>Simple Plastic Red Chair</span>
+                  </div>
+                  <div class="results-contents-info">
+                    <div class="results-contents-info-left">
+                      <span class="results-contents-stars">
+                        <p>☆<span>2.67</span></p>
+                        <p>(<span>27</span> Reviews)</p>
+                      </span>
+                      <img class="results-contents-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                    </div>
+                    <div class="results-contents-info-right">
+                      <ul>
+                        <li><strong>Price:</strong> $<span>35</span></li>
+                        <li><strong>Stocks:</strong> <span>11</span></li>
+                        <li><strong>Category:</strong> <span>chair</span></li>
+                        <li><strong>Color:</strong> <span>red</span></li>
+                        <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                        <li><strong>Size:</strong> <span>2.6</span></li>
+                        <li><strong>Brand:</strong> <span>Company</span></p>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="results-contents-descriptions">
+                    <p><strong>Description:</strong></p>
+                    <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                  </div>
+                </article>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
+      <section id="search-results-page" class="hidden">
+        <section id="search-results-page-contents">
+          <h3>Search Results</h3>
+          <section id="search-results-container">
+
+
+
+            <!-- Populate here -->
+            <article class="search-results-contents hidden">
+              <div class="results-contents-names">
+                <span>Simple Plastic Red Chair</span>
+              </div>
+              <div class="results-contents-info">
+                <div class="results-contents-info-left">
+                  <div class="results-contents-stars">
+                    <p>☆<span>2.67</span></p>
+                    <p>(<span>27</span> Reviews)</p>
+                  </div>
+                  <img class="results-contents-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                </div>
+                <div class="results-contents-info-right">
+                  <ul>
+                    <li><strong>Price:</strong> $<span>35</span></li>
+                    <li><strong>Stocks:</strong> <span>11</span></li>
+                    <li><strong>Category:</strong> <span>chair</span></li>
+                    <li><strong>Colors:</strong> <span>red</span></li>
+                    <li><strong>Materials:</strong> <span>Polypropylene, Polyethylene</span></li>
+                    <li><strong>Size:</strong> <span>2.6</span></li>
+                    <li><strong>Brand:</strong> <span>Company</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="results-contents-descriptions">
+                <p><strong>Description:</strong></p>
+                <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+              </div>
+            </article>
+
+          </section>
+          <section id="search-results-empty" class="hidden">
+            <p><strong>No Items Found :(</strong></p>
+          </section>
+        </section>
+      </section>
+      <section id="product-details-page" class="hidden">
+        <section id="product-details-page-contents">
+          <article id="product-details-contents">
+            <span id="product-details-name"><strong>Product Name Here Checking how many words I can put here</strong></span>
+            <img id="product-details-image" src="img/default/image-sample.png" alt="Sample Image">
+            <p id="product-details-coming-soon">This item will be available soon.</p>
+            <article>
+              <h4>Properties</h4>
+              <ul id="product-details-list">
+                <li><strong>Price:</strong> $<span>35</span></li>
+                <li><strong>Stocks:</strong> <span>11</span></li>
+                <li><strong>Category:</strong> <span>chair</span></li>
+                <li><strong>Color:</strong> <span>red</span></li>
+                <li><strong>Material:</strong> <span>Polypropylene, Polyethylene, Testing how many words I can write</span></li>
+                <li><strong>Size:</strong> <span>2.6</span></li>
+              </ul>
+            </article>
+            <article>
+              <h4>Description</h4>
+              <span id="product-details-description">You don't need to care about how many words for #product-details-description You have to write a description here. I will write an example description right now. That being said, I do not really have a lot to talk about so I will end this writing. Thank you MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</span>
+            </article>
+            <article id="product-details-reviews-article">
+              <h5>Reviews</h5>
+              <article>
+                <div id="product-details-reviews-info">
+                  <span><strong>Average:</strong>☆<span>4.6</span></span>
+                  <span><strong>Posted Reviews:</strong> <span>6</span></span>
+                </div>
+                <article id="product-details-reviews-container">
+                  <div id="reviews-empty" class="hidden">
+                    <p><strong>No reviews posted yet</strong></p>
+                  </div>
+
+
+
+                  <article class="product-details-reviews-contents">
+                    <div class="product-details-review-titles">
+                      <span>I like it and it's supreme!</span>
+                      <p> ☆<span>4.67</span></p>
+                    </div>
+                    <div class="product-details-review-users">
+                      <img class="icons" src="img/user-icons/unknown-user-icon.png" alt="unknown user icon">
+                      <span>Mr.Feast</span>
+                    </div>
+                    <span class="product-details-review-documents">You can write however many words too!! MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</span>
+                  </article>
+                  <article class="product-details-reviews-contents">
+                    <div class="product-details-review-titles">
+                      <span>I like it and it's supreme!</span>
+                      <p> ☆<span>4.67</span></p>
+                    </div>
+                    <div class="product-details-review-users">
+                      <img class="icons" src="img/user-icons/unknown-user-icon.png" alt="unknown user icon">
+                      <span>Mr.Feast</span>
+                    </div>
+                    <span class="product-details-review-documents">Don't forget to like and subscribe! What if I enter so many word. Let's goooooooooo. How far have I gotten now? Okay I will keeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep goinggggg. What now?????</span>
+                  </article>
+                  <article class="product-details-reviews-contents">
+                    <div class="product-details-review-titles">
+                      <span>I like it and it's supreme!</span>
+                      <p> ☆<span>4.67</span></p>
+                    </div>
+                    <div class="product-details-review-users">
+                      <img class="icons" src="img/user-icons/unknown-user-icon.png" alt="unknown user icon">
+                      <span>Mr.Feast</span>
+                    </div>
+                    <span class="product-details-review-documents">You can write however many words too!! MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</span>
+                  </article>
+                  <article class="product-details-reviews-contents">
+                    <div class="product-details-review-titles">
+                      <span>I like it and it's supreme!</span>
+                      <p> ☆<span>4.67</span></p>
+                    </div>
+                    <div class="product-details-review-users">
+                      <img class="icons" src="img/user-icons/unknown-user-icon.png" alt="unknown user icon">
+                      <span>Mr.Feast</span>
+                    </div>
+                    <span class="product-details-review-documents">Don't forget to like and subscribe! What if I enter so many word. Let's goooooooooo. How far have I gotten now? Okay I will keeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep goinggggg. What now?????</span>
+                  </article>
+                  <article class="product-details-reviews-contents">
+                    <div class="product-details-review-titles">
+                      <span>I like it and it's supreme!</span>
+                      <p> ☆<span>4.67</span></p>
+                    </div>
+                    <div class="product-details-review-users">
+                      <img class="icons" src="img/user-icons/unknown-user-icon.png" alt="unknown user icon">
+                      <span>Mr.Feast</span>
+                    </div>
+                    <span class="product-details-review-documents">You can write however many words too!! MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</span>
+                  </article>
+                  <article class="product-details-reviews-contents">
+                    <div class="product-details-review-titles">
+                      <span>I like it and it's supreme!</span>
+                      <p> ☆<span>4.67</span></p>
+                    </div>
+                    <div class="product-details-review-users">
+                      <img class="icons" src="img/user-icons/unknown-user-icon.png" alt="unknown user icon">
+                      <span>Mr.Feast</span>
+                    </div>
+                    <span class="product-details-review-documents">Don't forget to like and subscribe! What if I enter so many word. Let's goooooooooo. How far have I gotten now? Okay I will keeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep goinggggg. What now?????</span>
+                  </article>
+
+
+
+                </article>
+              </article>
+            </article>
+          </article>
+          <section id="add-to-cart-btn-section">
+            <div id="add-to-cart-quantity">
+              <label for="item-count">Select Quantity:</label>
+              <input type="number" id="item-count" name="item-count" value="1" min="1" max="99">
+            </div>
+            <div id="add-to-cart-btn"><strong>Add to Cart</strong></div>
+          </section>
+        </section>
+      </section>
+      <section id="cart-page" class="hidden">
+        <section id="cart-page-contents">
+          <section id="cart-contents">
+            <section id="cart-contents-left">
+              <h4>Your Cart</h4>
+              <article id="cart-container">
+                <div id="cart-empty" class="hidden">
+                  <p><strong>Oops, you have't added anything to your cart.</strong></p>
+                  <p><strong>It's browse time!</strong></p>
+                </div>
+
+                <!-- Populate here  -->
+                <article class="cart-items">
+                  <div class="cart-items-names">
+                    <span>Simple Plastic Red Chair</span>
+                  </div>
+                  <div class="cart-items-info">
+                    <div class="cart-items-info-left">
+                      <div class="cart-items-stars">
+                        <p>☆<span>2.67</span></p>
+                        <p>(<span>27</span> Reviews)</p>
+                      </div>
+                      <img class="cart-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                    </div>
+                    <div class="cart-items-info-right">
+                      <ul>
+                        <li><strong>Price:</strong> $<span>35</span></li>
+                        <li><strong>Stocks:</strong> <span>11</span></li>
+                        <li><strong>Category:</strong> <span>chair</span></li>
+                        <li><strong>Color:</strong> <span>red</span></li>
+                        <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                        <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cart-items-descriptions">
+                    <p><strong>Description:</strong></p>
+                    <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                  </div>
+                  <div class="incart-btns">
+                    <div class="incart-view-details"><strong>View Details</strong></div>
+                    <div class="incart-quantities">
+                      <div>Change Quantity:</div>
+                      <input type="number" name="item-count" value="1" min="1" max="99">
+                    </div>
+                    <div class="incart-removes"><strong>Remove from Cart</strong></div>
+                  </div>
+                </article>
+                <article class="cart-items">
+                  <div class="cart-items-names">
+                    <span>Simple Plastic Red Chair</span>
+                  </div>
+                  <div class="cart-items-info">
+                    <div class="cart-items-info-left">
+                      <div class="cart-items-stars">
+                        <p>☆<span>2.67</span></p>
+                        <p>(<span>27</span> Reviews)</p>
+                      </div>
+                      <img class="cart-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                    </div>
+                    <div class="cart-items-info-right">
+                      <ul>
+                        <li><strong>Price:</strong> $<span>35</span></li>
+                        <li><strong>Stocks:</strong> <span>11</span></li>
+                        <li><strong>Category:</strong> <span>chair</span></li>
+                        <li><strong>Color:</strong> <span>red</span></li>
+                        <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                        <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cart-items-descriptions">
+                    <p><strong>Description:</strong></p>
+                    <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                  </div>
+                  <div class="incart-btns">
+                    <div class="incart-view-details"><strong>View Details</strong></div>
+                    <div class="incart-quantities">
+                      <div>Change Quantity:</div>
+                      <input type="number" name="item-count" value="1" min="1" max="99">
+                    </div>
+                    <div class="incart-removes"><strong>Remove from Cart</strong></div>
+                  </div>
+                </article>
+                <article class="cart-items">
+                  <div class="cart-items-names">
+                    <span>Simple Plastic Red Chair</span>
+                  </div>
+                  <div class="cart-items-info">
+                    <div class="cart-items-info-left">
+                      <div class="cart-items-stars">
+                        <p>☆<span>2.67</span></p>
+                        <p>(<span>27</span> Reviews)</p>
+                      </div>
+                      <img class="cart-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                    </div>
+                    <div class="cart-items-info-right">
+                      <ul>
+                        <li><strong>Price:</strong> $<span>35</span></li>
+                        <li><strong>Stocks:</strong> <span>11</span></li>
+                        <li><strong>Category:</strong> <span>chair</span></li>
+                        <li><strong>Color:</strong> <span>red</span></li>
+                        <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                        <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cart-items-descriptions">
+                    <p><strong>Description:</strong></p>
+                    <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                  </div>
+                  <div class="incart-btns">
+                    <div class="incart-view-details"><strong>View Details</strong></div>
+                    <div class="incart-quantities">
+                      <div>Change Quantity:</div>
+                      <input type="number" name="item-count" value="1" min="1" max="99">
+                    </div>
+                    <div class="incart-removes"><strong>Remove from Cart</strong></div>
+                  </div>
+                </article>
+                <article class="cart-items">
+                  <div class="cart-items-names">
+                    <span>Simple Plastic Red Chair</span>
+                  </div>
+                  <div class="cart-items-info">
+                    <div class="cart-items-info-left">
+                      <div class="cart-items-stars">
+                        <p>☆<span>2.67</span></p>
+                        <p>(<span>27</span> Reviews)</p>
+                      </div>
+                      <img class="cart-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                    </div>
+                    <div class="cart-items-info-right">
+                      <ul>
+                        <li><strong>Price:</strong> $<span>35</span></li>
+                        <li><strong>Stocks:</strong> <span>11</span></li>
+                        <li><strong>Category:</strong> <span>chair</span></li>
+                        <li><strong>Color:</strong> <span>red</span></li>
+                        <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                        <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cart-items-descriptions">
+                    <p><strong>Description:</strong></p>
+                    <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                  </div>
+                  <div class="incart-btns">
+                    <div class="incart-view-details"><strong>View Details</strong></div>
+                    <div class="incart-quantities">
+                      <div>Change Quantity:</div>
+                      <input type="number" name="item-count" value="1" min="1" max="99">
+                    </div>
+                    <div class="incart-removes"><strong>Remove from Cart</strong></div>
+                  </div>
+                </article>
+
+              </article>
+            </section>
+            <section id="cart-contents-right">
+              <section id="points-message">
+                <p>You have <strong><span>230</span></strong> pt</p>
+                <span>You can write message here if you want</span>
+              </section>
+              <section id="transaction-message" class="hidden">
+                <p>Thank you for purchasing!</p>
+                <p>Your confirmation number is</p>
+                <span>You can hide and reveal #transaction-message and in this span you can write the confirmation number</span>
+              </section>
+            </section>
+          </section>
+          <section id="cart-purchase-section">
+            <h5>Confirm your transaction and press the button to purchase!</h5>
+            <label id="transaction-confirmation">
+              <input type="checkbox" name="transaction-confirmation">
+              <strong>Confirm your transaction</strong>
+            </label>
+            <div id="cart-purchase-btn"><strong>Purchase</strong></div>
+          </section>
+        </section>
+      </section>
+      <section id="user-page" class="hidden">
+        <section id="user-page-contents">
+          <h3><span>USERNAME_HERE</span>'s My Page</h3>
+          <section id="user-information-section">
+            <h4>User Information</h4>
+            <p>You have <strong><span>230</span></strong> pt</p>
+          </section>
+          <section id="transaction-history-section">
+            <h4>Transaction History</h4>
+            <section id="transaction-history-container">
+
+
+              <!-- Populate here -->
+              <article class="transaction-history-contents">
+                <div class="transaction-details">
+                  <p><strong>Date:</strong> <span>2024/12/07 19:53</span></p>
+                  <p><strong>Confirmation Number:</strong> <span>#12345</span></p>
+                  <p><strong>Total:</strong> $<span>35</span></p>
+                  <p><strong>Points Earned:</strong> <span>230</span> pt</p>
+                </div>
+                <div class="transaction-items-containers">
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                </div>
+              </article>
+              <article class="transaction-history-contents">
+                <div class="transaction-details">
+                  <p><strong>Date:</strong> <span>2024/12/07 19:53</span></p>
+                  <p><strong>Confirmation Number:</strong> <span>#12345</span></p>
+                  <p><strong>Total:</strong> $<span>35</span></p>
+                  <p><strong>Points Earned:</strong> <span>230</span> pt</p>
+                </div>
+                <div class="transaction-items-containers">
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                </div>
+              </article>
+              <article class="transaction-history-contents">
+                <div class="transaction-details">
+                  <p><strong>Date:</strong> <span>2024/12/07 19:53</span></p>
+                  <p><strong>Confirmation Number:</strong> <span>#12345</span></p>
+                  <p><strong>Total:</strong> $<span>35</span></p>
+                  <p><strong>Points Earned:</strong> <span>230</span> pt</p>
+                </div>
+                <div class="transaction-items-containers">
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                </div>
+              </article>
+              <article class="transaction-history-contents">
+                <div class="transaction-details">
+                  <p><strong>Date:</strong> <span>2024/12/07 19:53</span></p>
+                  <p><strong>Confirmation Number:</strong> <span>#12345</span></p>
+                  <p><strong>Total:</strong> $<span>35</span></p>
+                  <p><strong>Points Earned:</strong> <span>230</span> pt</p>
+                </div>
+                <div class="transaction-items-containers">
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                </div>
+              </article>
+              <article class="transaction-history-contents">
+                <div class="transaction-details">
+                  <p><strong>Date:</strong> <span>2024/12/07 19:53</span></p>
+                  <p><strong>Confirmation Number:</strong> <span>#12345</span></p>
+                  <p><strong>Total:</strong> $<span>35</span></p>
+                  <p><strong>Points Earned:</strong> <span>230</span> pt</p>
+                </div>
+                <div class="transaction-items-containers">
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                  <div class="transaction-items-contents">
+                    <div class="transaction-items-names">
+                      <span>Simple Plastic Red Chair</span>
+                    </div>
+                    <div class="transaction-items-info">
+                      <div class="transaction-items-info-left">
+                        <div class="transaction-items-stars">
+                          <p>☆<span>2.67</span></p>
+                          <p>(<span>27</span> Reviews)</p>
+                        </div>
+                        <img class="transaction-items-images" src="img/products/23268fc2-7aa2-40e1-a1ef-b20b87dd5026.jpg" alt="sample image">
+                      </div>
+                      <div class="transaction-items-info-right">
+                        <ul>
+                          <li><strong>Price:</strong> $<span>35</span></li>
+                          <li><strong>Stocks:</strong> <span>11</span></li>
+                          <li><strong>Category:</strong> <span>chair</span></li>
+                          <li><strong>Color:</strong> <span>red</span></li>
+                          <li><strong>Material:</strong> <span>Polypropylene, Polyethylene</span></li>
+                          <li><strong>Size:</strong> <span>2.6</span>ft</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="transaction-items-descriptions">
+                      <p><strong>Description:</strong></p>
+                      <span>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM...</span>
+                    </div>
+                    <p class="transaction-items-quantities"><strong>Quantity: </strong><span>2</span></p>
+                    <div class="transaction-items-view-details"><strong>View Details</strong></div>
+                  </div>
+                </div>
+              </article>
+
+
+
+            </section>
+          </section>
+        </section>
+      </section>
+    </main>
+    <footer id="footer">
+      <a id="back-to-top-anchor" href="#header">Back to Top</a>
+      <section id="credits">
+        <section>
+          <h4>Contacts</h4>
+          <ul>
+            <li>Tamaki: <a href="mailto:tamaki15@uw.edu">tamaki15@uw.edu</a></li>
+            <li>Hank: <a href="mailto:hanko2@uw.edu">hanko2@uw.edu</a></li>
+          </ul>
+        </section>
+        <section>
+          <h4>Feedback</h4>
+          <p>Post on Ed!!</p>
+          <a href="https://edstem.org/us/courses/67446/discussion">CSE 154 - 24au Ed Discussion</a>
+        </section>
+        <section>
+          <h4>Our About Pages</h4>
+          <ul>
+            <li>
+              <a href="https://courses.cs.washington.edu/courses/cse154/24au/index.html">CSE 154: Web Programming</a>
+            </li>
+            <li>
+              <a href="https://www.cs.washington.edu/">Paul G. Allen School of Computer Science</a>
+            </li>
+          </ul>
+        </section>
+        <section id="social">
+          <h4>Social</h4>
+          <div>
+            <span>
+              <img src="img/default/x-icon.png" alt="X icon">
+              <a href="https://x.com/uwcse?s=11&t=bbZMxh5rdDKQRf1BQkmZrA">@uwcse</a>
+            </span>
+            <span>
+              <img src="img/default/instagram-icon.png" alt="Instagram icon">
+              <a href="https://www.instagram.com/uwcse.outreach?igsh=MXAzNXNhdDQzdDBsaQ%3D%3D">@uwcse.outreach</a>
+            </span>
+          </div>
+        </section>
+      </section>
+      <p>Fonts are imported using Google's Google Font</p>
+      <p>Images are generated using Microsoft's Microsoft Designer, DeepAI's AI Image Generator</p>
+      <p>© 2024, Tamaki Arai, Hank O'rien, CSE154 Web Programming. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
